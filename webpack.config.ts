@@ -14,7 +14,8 @@ export default (env: BuildEnv) => {
     src: path.resolve(__dirname, 'src'),
   };
 
-  const mode = (env.mode.length > 0) ? env.mode : 'development';
+  // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
+  const mode = env.mode ? env.mode : 'development';
   const PORT = (env.port !== 0) ? env.port : 3000;
   const isDev = mode === 'development';
 
