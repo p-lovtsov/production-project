@@ -3,7 +3,7 @@ import { Suspense } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTheme } from './providers/ThemeProvider';
 import { AppRouter } from './providers/router';
-import { NavBar } from 'widgets/NavBar';
+import { Navbar } from 'widgets/Navbar';
 import './styles/index.scss';
 import { Sidebar } from 'widgets/Sidebar';
 
@@ -13,7 +13,7 @@ export const App = () => {
   return (
     <div className={classNames('app', {}, [theme])}>
       <Suspense fallback="">
-        <NavBar />
+        <Navbar />
         <div className="content-page">
           <Sidebar />
           <AppRouter />

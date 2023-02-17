@@ -7,7 +7,7 @@ type Props = {
   className?: string;
 };
 
-export const NavBar = ({ className = '' }: Props) => {
+export const Navbar = ({ className = '' }: Props) => {
   return (
     <div className={classNames(cls.Navbar, {}, [className])}>
       <div className={classNames(cls.links)}>
