@@ -20,7 +20,9 @@
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS",
-      "strictNullChecks": true,
     }
-  }
+  },
+  "include": [
+    "./config/jest/setupTests.ts"
+  ]
 }
