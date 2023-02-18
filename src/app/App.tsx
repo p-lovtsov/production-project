@@ -9,6 +9,7 @@ import { Sidebar } from 'widgets/Sidebar';
 
 export const App = () => {
   const { theme } = useTheme();
+  console.log('test workflow');
 
   return (
     <div className={classNames('app', {}, [theme])}>
