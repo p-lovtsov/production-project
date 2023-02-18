@@ -8,9 +8,10 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
-    project: ['./tsconfig.json']
+    // project: ['./tsconfig.json']
   },
   plugins: ['react', '@typescript-eslint', 'i18next'],
+  ignorePatterns: ['**/config/*.*'],
   rules: {
     semi: 'off',
     '@typescript-eslint/semi': 'off',
