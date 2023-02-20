@@ -5,6 +5,7 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 import { Theme } from 'app/providers/ThemeProvider';
 import { Sidebar } from './Sidebar';
 
+// eslint-disable-next-line @typescript-eslint/consistent-type-assertions
 export default {
   title: 'Widget/Sidebar',
   component: Sidebar,

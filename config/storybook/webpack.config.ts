@@ -1,10 +1,9 @@
 import path from 'path';
-import type webpack from 'webpack';
-import { type RuleSetRule } from 'webpack';
+import { type Configuration, type RuleSetRule } from 'webpack';
 import { buildCssLoader } from '../build/loaders/buildCssLoaders';
 import { type BuildPaths } from '../build/types/config'
 
-export default ({ config }: { config: webpack.Configuration }) => {
+export default ({ config }: { config: Configuration }) => {
   const paths: BuildPaths = {
     build: '',
     html: '',
@@ -16,10 +15,12 @@ export default ({ config }: { config: webpack.Configuration }) => {
 
   if (config.module != null) {
     if (config.module.rules != null) {
-      config.module.rules = config.module?.rules?.map((rule: RuleSetRule | '...') => {
-        if (rule !== '...' && (rule.test as string).includes('svg')) {
+      config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
+        // eslint-disable-next-line @typescript-eslint/prefer-includes
+        if (/svg/.test(rule.test as string)) {
           return { ...rule, exclude: /\.svg$/i };
         }
+
         return rule;
       });
     }
