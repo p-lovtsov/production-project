@@ -1,4 +1,4 @@
-import { useMemo, useState, type ReactNode } from 'react';
+import { useEffect, useMemo, useState, type ReactNode } from 'react';
 import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from '../lib/ThemeContext';
 
 const defaultTheme =
@@ -11,6 +11,15 @@ type Props = {
 
 export const ThemeProvider = ({ children, initialTheme }: Props) => {
   const [theme, setTheme] = useState<Theme>(initialTheme ?? defaultTheme);
+
+  useEffect(() => {
+    document.body.classList.add(theme);
+
+    return () => {
+      document.body.classList.remove(theme);
+    };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const defaultProps = useMemo(
     () => ({
