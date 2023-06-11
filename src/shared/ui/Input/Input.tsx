@@ -11,7 +11,6 @@ interface Props extends HTMLInputProps {
   autoFocus?: boolean;
 }
 
-// eslint-disable-next-line react/display-name
 export const Input = memo((props: Props) => {
   const { className = '', value, onChange, type = 'text', placeholder = '', autoFocus = false, ...otherProps } = props;
   const ref = useRef<HTMLInputElement>(null);
@@ -60,3 +59,5 @@ export const Input = memo((props: Props) => {
     </div>
   </div>;
 });
+
+Input.displayName = 'Input';
