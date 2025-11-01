@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -12,7 +12,7 @@ type Props = {
   className?: string;
 };
 
-export const Navbar = ({ className = '' }: Props) => {
+export const Navbar = memo(({ className = '' }: Props) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const [isAuthModal, setIsAuthModal] = useState(false);
@@ -58,4 +58,6 @@ export const Navbar = ({ className = '' }: Props) => {
       )}
     </div>
   );
-};
+});
+
+Navbar.displayName = 'Navbar';

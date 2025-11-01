@@ -29,7 +29,14 @@
     }
   ],
   "profile": {
-    "name": "typicode"
+    "first": "Pavel",
+    "lastName": "Lovtsov",
+    "age": 22,
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "Rzn",
+    "username": "admin",
+    "avatar": "https://avatars.mds.yandex.net/get-yapic/30061/KwFfNOfJC4QW28SzBbjMt19aI3o-1/orig"
   },
   "users": [
     {

@@ -1,4 +1,4 @@
-import { type ButtonHTMLAttributes } from 'react';
+import { memo, type ButtonHTMLAttributes } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
 
@@ -24,7 +24,7 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   disabled?: boolean;
 }
 
-export const Button = (props: Props) => {
+export const Button = memo((props: Props) => {
   const { className = '', children, theme = ButtonTheme.OUTLINE, square, disabled = false, size = ButtonSize.M, ...otherProps } = props;
 
   const mods: Record<string, boolean> = {
@@ -42,4 +42,6 @@ export const Button = (props: Props) => {
       {children}
     </button>
   );
-};
+});
+
+Button.displayName = 'Button';
