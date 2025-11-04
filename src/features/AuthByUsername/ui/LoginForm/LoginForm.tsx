@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react';
+import { memo, type MouseEventHandler, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
@@ -51,6 +51,8 @@ const LoginForm = memo(({ className = '', onSuccess }: LoginFormProps) => {
   const onLoginClick = useCallback(async () => {
     const result = await dispatch(loginByUsername({ username, password }));
 
+    console.log({ result });
+
     if (result.meta.requestStatus === 'fulfilled') {
       onSuccess();
     }
@@ -86,7 +88,7 @@ const LoginForm = memo(({ className = '', onSuccess }: LoginFormProps) => {
         <Button
           theme={ButtonTheme.OUTLINE}
           className={cls.loginBtn}
-          onClick={onLoginClick}
+          onClick={onLoginClick as MouseEventHandler<HTMLButtonElement>}
           disabled={isLoading}
         >
           {t('Войти')}
