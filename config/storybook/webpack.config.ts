@@ -15,10 +15,10 @@ export default ({ config }: { config: Configuration }) => {
 
   if (config.module != null) {
     if (config.module.rules != null) {
-      config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
+      config.module.rules = config.module.rules?.map((rule) => {
         // eslint-disable-next-line @typescript-eslint/prefer-includes
-        if (/svg/.test(rule.test as string)) {
-          return { ...rule, exclude: /\.svg$/i };
+        if (/svg/.test((rule as RuleSetRule).test as string)) {
+          return { ...(rule as RuleSetRule), exclude: /\.svg$/i };
         }
 
         return rule;

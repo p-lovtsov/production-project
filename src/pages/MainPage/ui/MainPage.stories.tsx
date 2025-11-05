@@ -5,7 +5,6 @@ import 'app/styles/index.scss';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import MainPage from './MainPage';
 
-// eslint-disable-next-line @typescript-eslint/consistent-type-assertions
 export default {
   title: 'pages/MainPage',
   component: MainPage,

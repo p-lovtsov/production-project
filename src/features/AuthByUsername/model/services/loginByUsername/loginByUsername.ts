@@ -16,11 +16,10 @@ export const loginByUsername = createAsyncThunk<User, Props, ThunkConfig<string>
     try {
       const response = await extra.api.post('/login', authData);
 
-      console.log({ response })
-
       if (!response.data) {
         throw new Error();
       }
+
       localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data));
       dispatch(userActions.setAuthData(response.data));
 

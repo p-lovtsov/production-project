@@ -2,6 +2,8 @@
   "PROFILE PAGE": "",
   "decrement": "",
   "increment": "",
+  "Ваша фамилия": "",
+  "Ваше имя": "",
   "Введите username": "Enter username",
   "Введите пароль": "Enter password",
   "Войти": "enter",
@@ -15,8 +17,10 @@
   "Перевод": "Translate",
   "Переключить": "Toggle",
   "Произошла непредвиденная ошибка": "Error detected",
+  "Профиль": "",
   "Страница не найдена": "Page not found",
   "Тестовый перевод": "Test translate",
   "Форма авторизации": "Authorization form",
-  "Язык": "English"
+  "Язык": "English",
+  "редактировать": ""
 }

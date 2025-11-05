@@ -1,4 +1,3 @@
-import { type DeepPartial } from '@reduxjs/toolkit';
 import { render } from '@testing-library/react';
 import { StoreProvider } from 'app/providers/StoreProvider';
 import { type StateSchema } from 'app/providers/StoreProvider/config/StateSchema';
@@ -16,12 +15,12 @@ export function componentRender (component: ReactNode, options: componentRenderO
   const { route = '/', initialState } = options;
 
   return render(
-    <StoreProvider initialState={initialState}>
-      <MemoryRouter initialEntries={[route]}>
+    <MemoryRouter initialEntries={[route]}>
+      <StoreProvider initialState={initialState}>
         <I18nextProvider i18n={i18nForTests}>
           {component}
         </I18nextProvider>
-      </MemoryRouter>
-    </StoreProvider>
+      </StoreProvider>
+    </MemoryRouter>
   )
 };
