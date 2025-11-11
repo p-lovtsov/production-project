@@ -5,6 +5,8 @@ import cls from './SidebarItem.module.scss';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { type SidebarItemType } from 'widgets/Sidebar/model/items';
 import { memo } from 'react';
+import { useSelector } from 'react-redux';
+import { getUserAuthData } from 'entities/User';
 
 type Props = {
   item: SidebarItemType;
@@ -13,18 +15,23 @@ type Props = {
 
 export const SidebarItem = memo(({ item, collapsed }: Props) => {
   const { t } = useTranslation();
+  const isAuth = useSelector(getUserAuthData);
+
+  if (item.authOnly && !isAuth) {
+    return null;
+  }
 
   return (
-<AppLink
-          theme={AppLinkTheme.SECONDARY}
-          to={item.path}
-          className={classNames(cls.item, { [cls.collapsed]: collapsed })}
-        >
-          <>
-            <item.Icon className={cls.icon} />
-            <span className={classNames(cls.link)}>{t(item.text)}</span>
-          </>
-        </AppLink>
+    <AppLink
+      theme={AppLinkTheme.SECONDARY}
+      to={item.path}
+      className={classNames(cls.item, { [cls.collapsed]: collapsed })}
+    >
+      <>
+        <item.Icon className={cls.icon} />
+        <span className={classNames(cls.link)}>{t(item.text)}</span>
+      </>
+    </AppLink>
   );
 });
 
