@@ -1,14 +1,14 @@
 import { useTranslation } from 'react-i18next';
 
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { classNames, type Mods } from 'shared/lib/classNames/classNames';
 import cls from './ProfileCard.module.scss';
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { Input } from 'shared/ui/Input/Input';
 import { Loader } from 'shared/ui/Loader';
 import { type Profile } from '../../model/types/profile';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { Currency, CurrencySelect } from 'entities/Currency';
-import { Country } from 'entities/Country';
+import { type Currency, CurrencySelect } from 'entities/Currency';
+import { type Country } from 'entities/Country';
 import { CountrySelect } from 'entities/Country/ui/CountrySelect/CountrySelect';
 
 type Props = {
@@ -119,19 +119,9 @@ export const ProfileCard = ({
           className={cls.input}
           onChange={onChangeAvatar}
           readOnly={readonly}
-          />
-        <CurrencySelect 
-          className={cls.input}
-          value={data?.currency}
-          onChange={onChangeCurrency}
-          readOnly={readonly}
         />
-        <CountrySelect 
-          className={cls.input}
-          value={data?.country}
-          onChange={onChangeCountry}
-          readOnly={readonly}
-        />
+        <CurrencySelect className={cls.input} value={data?.currency} onChange={onChangeCurrency} readOnly={readonly} />
+        <CountrySelect className={cls.input} value={data?.country} onChange={onChangeCountry} readOnly={readonly} />
       </div>
     </div>
   );

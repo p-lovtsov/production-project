@@ -5,6 +5,7 @@ module.exports = {
     jest: true
   },
   extends: ['plugin:react/recommended', 'standard-with-typescript', 'plugin:react/jsx-runtime', 'plugin:storybook/recommended'],
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
@@ -21,6 +22,7 @@ module.exports = {
     '@typescript-eslint/consistent-type-definitions': 'off',
     '@typescript-eslint/strict-boolean-expressions': 'off',
     '@typescript-eslint/consistent-type-assertions': 'off',
+    ' @typescript-eslint/type-annotation-spacing': 'off',
     'linebreak-style': 'off',
     'i18next/no-literal-string': ['error', {
       markupOnly: true,
@@ -30,10 +32,12 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'error',
     'no-param-reassign': 'off',
     'no-undef': 'off',
+    '@typescript-eslint/block-spacing': 'error',
   },
   globals: {
     __IS_DEV__: true,
     __API__: true,
+    __PROJECT__: true,
   },
   overrides: [{
     files: ['**/src/**/*.[test,stories].{ts,tsx}'],

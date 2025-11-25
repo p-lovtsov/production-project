@@ -17,7 +17,7 @@ import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components/Dy
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 import { Currency } from 'entities/Currency';
-import { Country } from 'entities/Country';
+import { type Country } from 'entities/Country';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { ValidateProfileError } from 'entities/Profile/model/types/profile';
 import { useTranslation } from 'react-i18next';
@@ -49,7 +49,9 @@ const ProfilePage = ({ className }: Props) => {
   };
 
   useEffect(() => {
-    void dispatch(fetchProfileData());
+    if (__PROJECT__ !== 'storybook') {
+      void dispatch(fetchProfileData());
+    }
   }, [dispatch]);
 
   const onChangeFirstName = useCallback(
